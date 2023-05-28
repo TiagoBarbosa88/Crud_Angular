@@ -22,6 +22,7 @@ export class ItemCadastrarEditarComponent implements OnInit {
 
   ngOnInit(): void {
     this.item = this.activatedRoute.snapshot.data['item'];
+    
     this.formGroup = this.formBuilder.group({
       id: [this.item && this.item.id ? this.item.id : null],
       nome: [
@@ -34,7 +35,7 @@ export class ItemCadastrarEditarComponent implements OnInit {
   salvar() {
     if (this.item && this.item.id) {
       this.ItemService.atualizar(this.formGroup.value).subscribe(
-        itemAtualizado => {
+        (itemAtualizado) => {
           this.router.navigateByUrl('/itens');
         },
         (error) => {
@@ -43,29 +44,27 @@ export class ItemCadastrarEditarComponent implements OnInit {
       );
     } else {
       this.ItemService.cadastrar(this.formGroup.value).subscribe(
-        itemCadastrado => {
+        (itemCadastrado) => {
           this.router.navigateByUrl('/itens');
+          console.log('sucesso');
         },
         (error) => {
           alert('Error ao cadastrar' + JSON.stringify(error));
+          console.log('falhou');
         }
       );
     }
   }
-deletar(){
-    if(confirm('Deseja deletar o item' + this.item.nome)){
+  deletar() {
+    if (confirm('Deseja deletar o item' + this.item.nome)) {
       this.ItemService.deletar(this.item).subscribe(
-        response => {
-            this.router.navigateByUrl('/itens')
+        (response) => {
+          this.router.navigateByUrl('/itens');
         },
-        error => {
-          alert('Erro ao deletar' + JSON.stringify(error))
+        (error) => {
+          alert('Erro ao deletar' + JSON.stringify(error));
         }
-      )
+      );
     }
   }
-
-
 }
-
-

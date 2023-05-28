@@ -1,8 +1,7 @@
 <mat-toolbar> {{ (item && item.id) ? "Editar Item": 'Cadastar Item' }} </mat-toolbar>
 
 <div class="componente-container">
-  <form class="form-padrao" *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="formGroup.valid && salvar()"
-      novalidate>
+  <form class="form-padrao" *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="formGroup.valid && salvar()" novalidate>
       <mat-form-field>
           <input matInput placeholder="Nome" formControlName="nome" required autocomplete="off">
           <mat-error>Campo é obrigatório</mat-error>

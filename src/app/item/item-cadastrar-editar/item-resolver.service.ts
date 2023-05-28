@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { of } from 'rxjs';
 import { Item } from '../item.model';
-import { empty } from 'rxjs';
 import { ItemService } from '../item.service';
 
 
@@ -17,6 +17,6 @@ export class ItemResolverService implements Resolve<Item> {
     if(id){
       return this.ItemService.pesquisarPorId(id);
     }
-    return empty();
+    return of({} as Item);
   }
 }

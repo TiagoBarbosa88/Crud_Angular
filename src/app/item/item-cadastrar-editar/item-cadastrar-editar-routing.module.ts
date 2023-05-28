@@ -5,11 +5,12 @@ import { ItemResolverService } from './item-resolver.service';
 
 const routes: Routes = [
   {
-    path: '', component: ItemCadastrarEditarComponent,
+    path: "",
+    component: ItemCadastrarEditarComponent,
     resolve: {
-      item: ItemResolverService
-    }
-  }
+        item: ItemResolverService,
+    },
+},
 ];
 
 @NgModule({
