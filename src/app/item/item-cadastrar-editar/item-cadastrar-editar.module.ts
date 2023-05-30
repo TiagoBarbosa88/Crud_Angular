@@ -9,18 +9,22 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { DiologoConfirmacaoModule } from 'src/app/_shared/diologo-confirmacao/diologo-confirmacao.module';
+
+
+
 @NgModule({
   declarations: [ItemCadastrarEditarComponent],
   imports: [
     CommonModule,
     ItemCadastrarEditarRoutingModule,
     ReactiveFormsModule,
+    DiologoConfirmacaoModule,
 
     MatFormFieldModule,
     MatInputModule,
     MatToolbarModule,
-    MatButtonModule
-
+    MatButtonModule,
   ],
 })
 export class ItemCadastrarEditarModule {}

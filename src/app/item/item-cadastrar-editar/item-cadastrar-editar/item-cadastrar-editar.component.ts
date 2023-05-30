@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ItemService } from '../../item.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from '../../item.model';
+import { MatDialog } from '@angular/material/dialog';
+import { DiologoConfirmacaoComponent } from 'src/app/_shared/diologo-confirmacao/diologo-confirmacao.component';
 
 @Component({
   selector: 'app-item-cadastrar-editar',
@@ -17,12 +19,13 @@ export class ItemCadastrarEditarComponent implements OnInit {
     private formBuilder: FormBuilder,
     private ItemService: ItemService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    public matDialog: MatDialog
   ) {}
 
   ngOnInit(): void {
     this.item = this.activatedRoute.snapshot.data['item'];
-    
+
     this.formGroup = this.formBuilder.group({
       id: [this.item && this.item.id ? this.item.id : null],
       nome: [
@@ -56,15 +59,22 @@ export class ItemCadastrarEditarComponent implements OnInit {
     }
   }
   deletar() {
-    if (confirm('Deseja deletar o item' + this.item.nome)) {
-      this.ItemService.deletar(this.item).subscribe(
-        (response) => {
-          this.router.navigateByUrl('/itens');
-        },
-        (error) => {
-          alert('Erro ao deletar' + JSON.stringify(error));
-        }
-      );
-    }
+    const dialogoReferencia =  this.matDialog.open(DiologoConfirmacaoComponent)
+
+    dialogoReferencia.afterClosed().subscribe(valorResposta => {
+      if(valorResposta) {
+          this.ItemService.deletar(this.item).subscribe(
+            (response) => {
+              this.router.navigateByUrl('/itens');
+            },
+            (error) => {
+              alert('Erro ao deletar' + JSON.stringify(error));
+            }
+          );
+
+
+      }
+
+    })
   }
 }
