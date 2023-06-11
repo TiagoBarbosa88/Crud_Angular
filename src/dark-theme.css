@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+.linha-botoes button,
+.linha-botoes a {
+  margin: 8px 8px 0px 0px;
+}
+
+.form-padrao {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-padrao > * {
+  width: 100%;
+}
+
+.componente-container {
+  padding: 15px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+
+  .mat-drawer-inner-container {
+    background-color: gray;
+
+  }
+
+  .mat-toolbar.mat-primary {
+    background-color: black;
+    color: #fff;
+  }
+
+  .mat-toolbar, .mat-toolbar h1, .mat-toolbar h2, .mat-toolbar h3, .mat-toolbar h4, .mat-toolbar h5, .mat-toolbar h6 {
+    background-color: rgb(87, 86, 86);
+    color: #fff;
+}
+
+.mdc-list-item__primary-text {
+  color: #fff;
+}
+
+.mat-mdc-raised-button.mat-primary  {
+  background-color: gray;
+}
+
+.mat-mdc-raised-button.mat-primary:hover {
+  background-color: rgb(75, 74, 74);
+}
+
+}
+

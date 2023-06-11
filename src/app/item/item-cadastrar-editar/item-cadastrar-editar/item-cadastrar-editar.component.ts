@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ItemService } from '../../item.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,6 +14,7 @@ import { DiologoConfirmacaoComponent } from 'src/app/_shared/diologo-confirmacao
 export class ItemCadastrarEditarComponent implements OnInit {
   formGroup!: FormGroup;
   item!: Item;
+
 
   constructor(
     private formBuilder: FormBuilder,

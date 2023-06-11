@@ -1,22 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
-.linha-botoes button,
-.linha-botoes a {
-  margin: 8px 8px 0px 0px;
-}
+@import "./dark-theme.css";
 
-.form-padrao {
-  display: flex;
-  flex-direction: column;
-}
 
-.form-padrao > * {
-  width: 100%;
+* {
+  margin: 0;
+  padding: 0;
+  list-style: nome;
+  text-decoration: none;
 }
-
-.componente-container {
-  padding: 15px;
-}
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
